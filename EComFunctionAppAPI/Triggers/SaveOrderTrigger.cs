@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EComFunctionAppAPI.Constants;
 using EComFunctionAppAPI.Middleware;
 using EComFunctionAppAPI.Requests;
+using EComFunctionAppAPI.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,15 @@ namespace EComFunctionAppAPI.Triggers
     {
         private readonly IAuthorizationMiddleware _authorizationMiddleware;
         private readonly IValidator<SaveOrderRequest> _saveOrderRequestValidator;
+        private readonly ISaveOrderService _saveOrderService;
 
         public SaveOrderTrigger(IAuthorizationMiddleware authorizationMiddleware,
-            IValidator<SaveOrderRequest> saveOrderRequestValidator)
+            IValidator<SaveOrderRequest> saveOrderRequestValidator,
+            ISaveOrderService saveOrderService)
         {
             _authorizationMiddleware = authorizationMiddleware;
             _saveOrderRequestValidator = saveOrderRequestValidator;
+            _saveOrderService = saveOrderService;
         }
 
         [FunctionName("SaveOrderTrigger")]
@@ -67,10 +71,10 @@ namespace EComFunctionAppAPI.Triggers
             #endregion
 
             #region Logic 
-
+            var response = await _saveOrderService.HandleAsync(request);
             #endregion
 
-            return new OkObjectResult("");
+            return new OkObjectResult(response);
         }
     }
 }

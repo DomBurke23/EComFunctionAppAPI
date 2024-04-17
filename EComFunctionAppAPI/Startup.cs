@@ -2,6 +2,7 @@
 using EComFunctionAppAPI.Middleware;
 using EComFunctionAppAPI.Options;
 using EComFunctionAppAPI.Requests;
+using EComFunctionAppAPI.Services;
 using EComFunctionAppAPI.Validators;
 using FluentValidation;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -16,8 +17,6 @@ public class Startup : FunctionsStartup
 
     public override void Configure(IFunctionsHostBuilder builder)
     {
-        //builder.Services.AddHttpClient();
-
         // Middleware
         builder.Services.AddTransient<IAuthorizationMiddleware, AuthorizationMiddleware>();
         builder.Services.AddOptions<AuthorizationOptions>().Configure<IConfiguration>((settings, config) =>
@@ -28,5 +27,8 @@ public class Startup : FunctionsStartup
         // Validation 
         ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
         builder.Services.AddTransient<IValidator<SaveOrderRequest>, SaveOrderRequestValidator>();
+
+        // Services 
+        builder.Services.AddScoped<ISaveOrderService, SaveOrderService>();
     }
 }
