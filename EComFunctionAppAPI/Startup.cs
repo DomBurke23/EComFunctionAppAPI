@@ -1,4 +1,5 @@
 ﻿using EComFunctionAppAPI;
+using EComFunctionAppAPI.Data.Repositories;
 using EComFunctionAppAPI.Middleware;
 using EComFunctionAppAPI.Options;
 using EComFunctionAppAPI.Requests;
@@ -17,6 +18,8 @@ public class Startup : FunctionsStartup
 
     public override void Configure(IFunctionsHostBuilder builder)
     {
+        builder.Services.AddHttpClient();
+
         // Middleware
         builder.Services.AddTransient<IAuthorizationMiddleware, AuthorizationMiddleware>();
         builder.Services.AddOptions<AuthorizationOptions>().Configure<IConfiguration>((settings, config) =>
@@ -30,5 +33,12 @@ public class Startup : FunctionsStartup
 
         // Services 
         builder.Services.AddScoped<ISaveOrderService, SaveOrderService>();
+
+        // SQL 
+        builder.Services.AddSingleton<IRepository,Repository>();
+        builder.Services.AddOptions<DbOptions>().Configure<IConfiguration>((settings, config) =>
+        {
+            config.GetSection(nameof(DbOptions)).Bind(settings);
+        });
     }
 }
