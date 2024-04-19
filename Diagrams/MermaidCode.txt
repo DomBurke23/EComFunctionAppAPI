@@ -1,0 +1,11 @@
+flowchart TD
+    A[Front End] -->|Authorisation Parameter| B[Main Project]
+    B --> |Client Call| C[OrderClientProject] 
+    B --> |Client Call| E[CustomerClientProject]
+    B --> |Client Call| G[WalletClientProject]
+    C --> |Http Call| D[Order Project]
+    E --> |Http Call| F[Customer Project]
+    D --> Z[Database]
+    F --> Z
+    G --> |Http Call| H[Wallet Project]
+    H --> Z

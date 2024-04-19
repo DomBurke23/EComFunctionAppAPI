@@ -2,7 +2,7 @@
 using EComFunctionAppAPI.Data.Repositories;
 using EComFunctionAppAPI.Middleware;
 using EComFunctionAppAPI.Options;
-using EComFunctionAppAPI.Requests;
+using EComFunctionAppAPI.Client.Requests;
 using EComFunctionAppAPI.Services;
 using EComFunctionAppAPI.Validators;
 using FluentValidation;

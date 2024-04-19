@@ -1,4 +1,4 @@
-﻿using EComFunctionAppAPI.Requests;
+﻿using EComFunctionAppAPI.Client.Requests;
 using System.Threading.Tasks;
 
 namespace EComFunctionAppAPI.Data.Repositories;

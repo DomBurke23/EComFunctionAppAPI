@@ -1,4 +1,4 @@
-﻿namespace EComFunctionAppAPI.Requests;
+﻿namespace EComFunctionAppAPI.Client.Requests;
 
 public class SaveOrderRequest
 {

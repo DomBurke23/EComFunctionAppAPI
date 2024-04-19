@@ -13,6 +13,9 @@
 	<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EComFunctionAppAPI.Client\EComFunctionAppAPI.Client.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using EComFunctionAppAPI.Data.Models;
 using EComFunctionAppAPI.Options;
-using EComFunctionAppAPI.Requests;
+using EComFunctionAppAPI.Client.Requests;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;

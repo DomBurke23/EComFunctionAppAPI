@@ -1,5 +1,5 @@
-﻿using EComFunctionAppAPI.Data.Repositories;
-using EComFunctionAppAPI.Requests;
+﻿using EComFunctionAppAPI.Client.Requests;
+using EComFunctionAppAPI.Data.Repositories;
 using EComFunctionAppAPI.Responses;
 using Microsoft.Extensions.Logging;
 using System;

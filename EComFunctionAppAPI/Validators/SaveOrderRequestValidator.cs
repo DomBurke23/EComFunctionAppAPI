@@ -1,4 +1,4 @@
-﻿using EComFunctionAppAPI.Requests;
+﻿using EComFunctionAppAPI.Client.Requests;
 using FluentValidation;
 
 namespace EComFunctionAppAPI.Validators;
