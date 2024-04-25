@@ -1,17 +1,16 @@
 ﻿using Dapper;
-using EComFunctionAppAPI.Data.Models;
-using EComFunctionAppAPI.Options;
 using EComFunctionAppAPI.Client.Requests;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using EComFunctionAppAPI.Infrastructure.Options;
+using EComFunctionAppAPI.Domain.Models;
+using EComFunctionAppAPI.Application.Interfaces;
 
 namespace EComFunctionAppAPI.Data.Repositories;
 
-public class Repository : BaseRepository, IRepository
+public class OrderRepository : BaseRepository, IOrderRepository
 {
-    public Repository(IOptions<DbOptions> dbOptions) : base(dbOptions)
+    public OrderRepository(IOptions<DbOptions> dbOptions) : base(dbOptions)
     {
 
     }

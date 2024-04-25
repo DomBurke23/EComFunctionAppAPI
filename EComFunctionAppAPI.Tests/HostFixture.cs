@@ -1,6 +1,7 @@
-﻿using EComFunctionAppAPI.Data.Repositories;
-using EComFunctionAppAPI.Options;
-using EComFunctionAppAPI.Services;
+﻿using EComFunctionAppAPI.Application.Interfaces;
+using EComFunctionAppAPI.Data.Repositories;
+using EComFunctionAppAPI.Domain.Services;
+using EComFunctionAppAPI.Infrastructure.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,7 +23,7 @@ public class HostFixture
             .ConfigureServices((hostContext, services) =>
             {
                 // Repositories 
-                services.AddTransient<IRepository, Repository>();
+                services.AddTransient<IOrderRepository, OrderRepository>();
 
                 // Add Options 
                 services.AddOptions<DbOptions>().Configure<IConfiguration>((settings, config) =>
@@ -31,7 +32,7 @@ public class HostFixture
                 });
 
                 services.AddSingleton<HttpClient>();
-                services.AddTransient<ISaveOrderService, SaveOrderService>();
+                services.AddTransient<IEmailService, EmailService>();
             }).Build();
     }
 }

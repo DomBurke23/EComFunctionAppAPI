@@ -5,11 +5,17 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI", "EComFunctionAppAPI\EComFunctionAppAPI.csproj", "{F2CC7BC4-EFFC-4D74-AB5A-7D5781A6DFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComFunctionAppAPI.Tests", "EComFunctionAppAPI.Tests\EComFunctionAppAPI.Tests.csproj", "{F78D8C34-9D30-4F9F-A433-D092B3CBA052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI.Tests", "EComFunctionAppAPI.Tests\EComFunctionAppAPI.Tests.csproj", "{F78D8C34-9D30-4F9F-A433-D092B3CBA052}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComFunctionAppAPI.Common", "EComFunctionAppAPI.Common\EComFunctionAppAPI.Common.csproj", "{437C57D9-51D8-421D-A5C7-CAD4A70C5268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI.Common", "EComFunctionAppAPI.Common\EComFunctionAppAPI.Common.csproj", "{437C57D9-51D8-421D-A5C7-CAD4A70C5268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComFunctionAppAPI.Client", "EComFunctionAppAPI.Client\EComFunctionAppAPI.Client.csproj", "{AD709FDC-77B1-4D7F-A040-DDC1C2BE3AB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI.Client", "EComFunctionAppAPI.Client\EComFunctionAppAPI.Client.csproj", "{AD709FDC-77B1-4D7F-A040-DDC1C2BE3AB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI.Domain", "EComFunctionAppAPI.Domain\EComFunctionAppAPI.Domain.csproj", "{8F8EE030-EEE1-4A04-8601-07CEA0108295}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComFunctionAppAPI.Infrastructure", "EComFunctionAppAPI.Infrastructure\EComFunctionAppAPI.Infrastructure.csproj", "{9642A76A-5B5F-4A6F-8B62-C6071CAB688C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComFunctionAppAPI.Application", "EComFunctionAppAPI.Application\EComFunctionAppAPI.Application.csproj", "{DB9EB4A1-9C85-47F5-A911-437F22D3B16E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{AD709FDC-77B1-4D7F-A040-DDC1C2BE3AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD709FDC-77B1-4D7F-A040-DDC1C2BE3AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD709FDC-77B1-4D7F-A040-DDC1C2BE3AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8EE030-EEE1-4A04-8601-07CEA0108295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8EE030-EEE1-4A04-8601-07CEA0108295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8EE030-EEE1-4A04-8601-07CEA0108295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8EE030-EEE1-4A04-8601-07CEA0108295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9642A76A-5B5F-4A6F-8B62-C6071CAB688C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9642A76A-5B5F-4A6F-8B62-C6071CAB688C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9642A76A-5B5F-4A6F-8B62-C6071CAB688C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9642A76A-5B5F-4A6F-8B62-C6071CAB688C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB9EB4A1-9C85-47F5-A911-437F22D3B16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9EB4A1-9C85-47F5-A911-437F22D3B16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9EB4A1-9C85-47F5-A911-437F22D3B16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9EB4A1-9C85-47F5-A911-437F22D3B16E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

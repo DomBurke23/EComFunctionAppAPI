@@ -1,4 +1,4 @@
-﻿namespace EComFunctionAppAPI.Options;
+﻿namespace EComFunctionAppAPI.Common.Options;
 
 public class AuthorizationOptions
 {

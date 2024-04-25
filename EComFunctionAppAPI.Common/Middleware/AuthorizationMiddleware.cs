@@ -1,5 +1,5 @@
-﻿using EComFunctionAppAPI.Constants;
-using EComFunctionAppAPI.Options;
+﻿using EComFunctionAppAPI.Client.Constants;
+using EComFunctionAppAPI.Common.Options;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 

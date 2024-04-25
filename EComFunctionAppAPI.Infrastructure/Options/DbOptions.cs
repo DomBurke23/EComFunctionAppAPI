@@ -1,4 +1,4 @@
-﻿namespace EComFunctionAppAPI.Options;
+﻿namespace EComFunctionAppAPI.Infrastructure.Options;
 
 public class DbOptions
 {

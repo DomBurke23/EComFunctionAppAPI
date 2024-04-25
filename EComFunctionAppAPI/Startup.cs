@@ -1,14 +1,13 @@
 ﻿using EComFunctionAppAPI;
-using EComFunctionAppAPI.Data.Repositories;
-using EComFunctionAppAPI.Middleware;
-using EComFunctionAppAPI.Options;
-using EComFunctionAppAPI.Client.Requests;
-using EComFunctionAppAPI.Services;
-using EComFunctionAppAPI.Validators;
 using FluentValidation;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EComFunctionAppAPI.Extensions;
+using EComFunctionAppAPI.Common.Extensions;
+using EComFunctionAppAPI.Common.Options;
+using EComFunctionAppAPI.Infrastructure.Options;
+using EComFunctionAppAPI.Infrastructure.Extensions;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace EComFunctionAppAPI;
@@ -18,24 +17,17 @@ public class Startup : FunctionsStartup
 
     public override void Configure(IFunctionsHostBuilder builder)
     {
-        builder.Services.AddHttpClient();
-
-        // Middleware
-        builder.Services.AddTransient<IAuthorizationMiddleware, AuthorizationMiddleware>();
+        builder.Services.AddAuthorizationServices();
         builder.Services.AddOptions<AuthorizationOptions>().Configure<IConfiguration>((settings, config) =>
         {
             config.GetSection(nameof(AuthorizationOptions)).Bind(settings);
         });
 
-        // Validation 
         ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
-        builder.Services.AddTransient<IValidator<SaveOrderRequest>, SaveOrderRequestValidator>();
 
-        // Services 
-        builder.Services.AddScoped<ISaveOrderService, SaveOrderService>();
+        builder.Services.AddApplicationServices();
 
-        // SQL 
-        builder.Services.AddSingleton<IRepository,Repository>();
+        builder.Services.AddDataServices();
         builder.Services.AddOptions<DbOptions>().Configure<IConfiguration>((settings, config) =>
         {
             config.GetSection(nameof(DbOptions)).Bind(settings);

@@ -1,4 +1,4 @@
-﻿namespace EComFunctionAppAPI.Responses;
+﻿namespace EComFunctionAppAPI.Client.Responses;
 
 public class SaveOrderResponse
 {

@@ -1,4 +1,4 @@
-﻿namespace EComFunctionAppAPI.Data.Models;
+﻿namespace EComFunctionAppAPI.Domain.Models;
 
 public class Orders
 {

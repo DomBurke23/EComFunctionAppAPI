@@ -4,16 +4,16 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.5.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-	<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-	<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
+	<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EComFunctionAppAPI.Application\EComFunctionAppAPI.Application.csproj" />
     <ProjectReference Include="..\EComFunctionAppAPI.Client\EComFunctionAppAPI.Client.csproj" />
+    <ProjectReference Include="..\EComFunctionAppAPI.Common\EComFunctionAppAPI.Common.csproj" />
+    <ProjectReference Include="..\EComFunctionAppAPI.Infrastructure\EComFunctionAppAPI.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

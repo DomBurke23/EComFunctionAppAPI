@@ -2,10 +2,11 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using EComFunctionAppAPI.Application.UseCases;
+using EComFunctionAppAPI.Client.Constants;
 using EComFunctionAppAPI.Client.Requests;
-using EComFunctionAppAPI.Constants;
-using EComFunctionAppAPI.Middleware;
-using EComFunctionAppAPI.Services;
+using EComFunctionAppAPI.Client.Responses;
+using EComFunctionAppAPI.Common.Middleware;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,15 +24,15 @@ namespace EComFunctionAppAPI.Triggers
     {
         private readonly IAuthorizationMiddleware _authorizationMiddleware;
         private readonly IValidator<SaveOrderRequest> _saveOrderRequestValidator;
-        private readonly ISaveOrderService _saveOrderService;
+        private readonly IUseCase<SaveOrderRequest, SaveOrderResponse> _saveOrderUseCase;
 
         public SaveOrderTrigger(IAuthorizationMiddleware authorizationMiddleware,
             IValidator<SaveOrderRequest> saveOrderRequestValidator,
-            ISaveOrderService saveOrderService)
+            IUseCase<SaveOrderRequest, SaveOrderResponse> saveOrderUseCase)
         {
             _authorizationMiddleware = authorizationMiddleware;
             _saveOrderRequestValidator = saveOrderRequestValidator;
-            _saveOrderService = saveOrderService;
+            _saveOrderUseCase = saveOrderUseCase;
         }
 
         [FunctionName("SaveOrderTrigger")]
@@ -71,7 +72,7 @@ namespace EComFunctionAppAPI.Triggers
             #endregion
 
             #region Save Order Logic 
-            var response = await _saveOrderService.HandleAsync(request);
+            var response = await _saveOrderUseCase.HandleAsync(request);
             #endregion
 
             return new OkObjectResult(response);

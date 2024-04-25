@@ -1,4 +1,4 @@
-﻿using EComFunctionAppAPI.Options;
+﻿using EComFunctionAppAPI.Infrastructure.Options;
 using Microsoft.Extensions.Options;
 
 namespace EComFunctionAppAPI.Data.Repositories
