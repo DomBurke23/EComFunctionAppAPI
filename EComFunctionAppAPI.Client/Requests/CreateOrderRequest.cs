@@ -1,6 +1,6 @@
 ﻿namespace EComFunctionAppAPI.Client.Requests;
 
-public class SaveOrderRequest
+public class CreateOrderRequest
 {
     public string OrderId { get; set; }
     public string CustomerId { get; set; }

@@ -7,13 +7,13 @@ using System.Net;
 
 namespace EComFunctionAppAPI.Application.UseCases
 {
-    public class SaveOrderUseCase : IUseCase<SaveOrderRequest, SaveOrderResponse>
+    public class CreateOrderUseCase : IUseCase<CreateOrderRequest, CreateOrderResponse>
     {
-        private readonly ILogger<IUseCase<SaveOrderRequest, SaveOrderResponse>> _logger;
+        private readonly ILogger<IUseCase<CreateOrderRequest, CreateOrderResponse>> _logger;
         private readonly IOrderRepository _repository;
         private readonly IEmailService _emailService;
 
-        public SaveOrderUseCase(ILogger<IUseCase<SaveOrderRequest, SaveOrderResponse>> logger,
+        public CreateOrderUseCase(ILogger<IUseCase<CreateOrderRequest, CreateOrderResponse>> logger,
             IOrderRepository repository,
             IEmailService emailService)
         {
@@ -22,18 +22,18 @@ namespace EComFunctionAppAPI.Application.UseCases
             _emailService = emailService;
         }
 
-        public async Task<SaveOrderResponse> HandleAsync(SaveOrderRequest request)
+        public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
         {
-            _logger.LogInformation("Save Order Use Case Entered");
+            _logger.LogInformation("Create Order Use Case Entered");
 
-            #region Save Order to DB
+            #region Create / Save Order to DB
             try
             {
-                var update = await _repository.SaveOrder(request);
+                var update = await _repository.CreateOrder(request);
 
                 if (!update)
                 {
-                    return new SaveOrderResponse
+                    return new CreateOrderResponse
                     {
                         Success = false,
                         StatusCode = (int)HttpStatusCode.ServiceUnavailable,
@@ -58,7 +58,7 @@ namespace EComFunctionAppAPI.Application.UseCases
             }
             #endregion
 
-            return new SaveOrderResponse
+            return new CreateOrderResponse
             {
                 Success = true,
                 StatusCode = (int)HttpStatusCode.OK

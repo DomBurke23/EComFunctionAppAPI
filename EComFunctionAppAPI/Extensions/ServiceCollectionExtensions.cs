@@ -13,8 +13,12 @@ namespace EComFunctionAppAPI.Extensions
 
         public static void AddApplicationServices(this IServiceCollection services)
         {
-            services.AddTransient<IValidator<SaveOrderRequest>, SaveOrderRequestValidator>();
-            services.AddTransient<IUseCase<SaveOrderRequest, SaveOrderResponse>, SaveOrderUseCase>();
+            services.AddTransient<IValidator<CreateOrderRequest>, CreateOrderRequestValidator>();
+            services.AddTransient<IUseCase<CreateOrderRequest, CreateOrderResponse>, CreateOrderUseCase>();
+            
+            services.AddTransient<IValidator<GetOrderRequest>, GetOrderRequestValidator>();
+            services.AddTransient<IUseCase<GetOrderRequest, GetOrderResponse>, GetOrderUseCase>();
+            
             services.AddScoped<IEmailService, EmailService>();
         }
     }

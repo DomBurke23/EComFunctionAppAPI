@@ -1,6 +1,6 @@
 ﻿namespace EComFunctionAppAPI.Client.Responses;
 
-public class SaveOrderResponse
+public class CreateOrderResponse
 {
     public bool Success { get; set; }
     public int StatusCode { get; set; }

@@ -15,13 +15,13 @@ public class OrderRepository : BaseRepository, IOrderRepository
 
     }
 
-    public async Task<bool> SaveOrder(SaveOrderRequest saveOrderRequest)
+    public async Task<bool> CreateOrder(CreateOrderRequest createOrderRequest)
     {
         var sql = $@"
-INSERT INTO [dbo].[Orders]
+INSERT INTO [dbo].[Order]
 (
-{nameof(saveOrderRequest.OrderId)},
-{nameof(saveOrderRequest.TotalPrice)}
+{nameof(createOrderRequest.OrderId)},
+{nameof(createOrderRequest.TotalPrice)}
 )
 VALUES
 (
@@ -35,26 +35,41 @@ VALUES
             connection.Open();
             await connection.ExecuteAsync(sql, new
             {
-                saveOrderRequest.OrderId,
-                saveOrderRequest.TotalPrice
+                createOrderRequest.OrderId,
+                createOrderRequest.TotalPrice
             });
             return true;
         }
     }
 
-    public async Task<List<Orders>> GetCustomersOrders(string customerId)
+    public async Task<Order> GetOrderByOrderId(string orderId)
+    {
+        var sql = $@"
+SELECT * 
+FROM [dbo].[Order] o
+Where o.OrderId = @OrderId;
+";
+        using (var connection = new SqlConnection(_dbOptions.ConnectionString))
+        {
+            connection.Open();
+            var order = await connection.QueryFirstOrDefaultAsync<Order>(sql, new { OrderId = orderId });
+            return order;
+        }
+    }
+
+    public async Task<List<Order>> GetCustomersOrders(string customerId)
     {
         var sql = $@"
 SELECT * 
 FROM [dbo].[Customer] c 
-INNER JOIN [dbo].[Orders] o 
+INNER JOIN [dbo].[Order] o 
 ON o.CustomerId = c.CustomerId 
 WHERE CustomerId = @CustomerId;
 ";
         using (var connection = new SqlConnection(_dbOptions.ConnectionString))
         {
             connection.Open();
-            var orders = await connection.QueryFirstOrDefaultAsync<List<Orders>>(sql, new { CustomerId = customerId });
+            var orders = await connection.QueryFirstOrDefaultAsync<List<Order>>(sql, new { CustomerId = customerId });
             return orders;
         }
     }

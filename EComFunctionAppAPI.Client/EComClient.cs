@@ -23,11 +23,11 @@ public class EComClient : IEComClient
         _eComOptions = eComOptions.Value;
     }
 
-    public async Task<HttpResponseMessage> SaveOrderAsync(SaveOrderRequest saveOrderRequest)
+    public async Task<HttpResponseMessage> CreateOrderAsync(CreateOrderRequest createOrderRequest)
     {
-        var requestPath = "/SaveOrderTrigger";
+        var requestPath = "/CreateOrderTrigger";
         var uri = new Uri(BaseUri, requestPath);
-        var dataJson = JsonSerializer.Serialize(saveOrderRequest);
+        var dataJson = JsonSerializer.Serialize(createOrderRequest);
         var request = new HttpRequestMessage
         {
             Method = HttpMethod.Post,

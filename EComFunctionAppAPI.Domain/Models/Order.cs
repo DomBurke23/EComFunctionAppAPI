@@ -1,6 +1,6 @@
 ﻿namespace EComFunctionAppAPI.Domain.Models;
 
-public class Orders
+public class Order
 {
     public int Id { get; set; }
     public string OrderID { get; set; }

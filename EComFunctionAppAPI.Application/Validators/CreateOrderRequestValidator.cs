@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace EComFunctionAppAPI.Validators;
 
-public class SaveOrderRequestValidator : AbstractValidator<SaveOrderRequest>
+public class CreateOrderRequestValidator : AbstractValidator<CreateOrderRequest>
 {
-    public SaveOrderRequestValidator()
+    public CreateOrderRequestValidator()
     {
         RuleFor(x => x.OrderId).NotEmpty();
         RuleFor(x => x.CustomerId).NotEmpty();

@@ -9,6 +9,14 @@ With the database design I have set this up to use one azure located database. H
 
 --------------------
 
+DDD
+UI/API -> Triggers 
+Application -> Use Cases & Validation 
+	*instead of use cases you can use CQRS which is like GQL mutations and queries.*
+Domain -> Models/Entities, State Machines 
+Infrastructure -> databases, messaging services.
+
+--------------------
 
 Technical Task
 
